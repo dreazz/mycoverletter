@@ -28,7 +28,7 @@ const upsertProductRecord = async (product: Stripe.Product) => {
 };
 
 const upsertPriceRecord = async (price: Stripe.Price) => {
-  const priceData: Price = {
+  const priceData: any = {
     id: price.id,
     product_id: typeof price.product === 'string' ? price.product : '',
     active: price.active,
