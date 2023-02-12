@@ -3,7 +3,7 @@ import axios from 'axios';
 export async function generateCoverLetter(prompt: string) {
   const { Configuration, OpenAIApi } = require('openai');
   const configuration = new Configuration({
-    apiKey: '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'
+    apiKey: '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'
   });
   const openai = new OpenAIApi(configuration);
   try{
