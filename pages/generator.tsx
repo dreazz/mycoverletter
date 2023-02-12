@@ -45,7 +45,7 @@ export default function Generator() {
         >
           Company description:
         </label>
-      
+
         <label
           htmlFor="company"
           className="block text-sm font-medium text-white-700"
@@ -67,12 +67,18 @@ export default function Generator() {
         </p>
         <button onClick={handleSubmit}> Generate cover letter </button>
       </div>
-      {coverLetter &&
-        coverLetter.map((item: any) => {
-          return (
-            <textarea style={{ color: 'black' }} value={item.text}></textarea>
-          );
-        })}
+      <div>
+        "Hello"
+        {coverLetter ? (
+          coverLetter.map((item: any) => {
+            return (
+              <textarea style={{ color: 'black' }} value={item.text}></textarea>
+            );
+          })
+        ) : (
+          <h1>"Your cover letter will appear here"</h1>
+        )}
+      </div>
     </div>
   );
 }
