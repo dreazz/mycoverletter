@@ -15,6 +15,7 @@ interface Props {
 type BillingInterval = 'year' | 'month';
 
 export default function Pricing({ products }: Props) {
+  console.log(products);
   const router = useRouter();
   const [billingInterval, setBillingInterval] =
     useState<BillingInterval>('month');
@@ -39,6 +40,7 @@ export default function Pricing({ products }: Props) {
       const stripe = await getStripe();
       stripe?.redirectToCheckout({ sessionId });
     } catch (error) {
+      console.log(error);
       return alert((error as Error)?.message);
     } finally {
       setPriceIdLoading(undefined);

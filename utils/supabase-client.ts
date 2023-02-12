@@ -10,6 +10,7 @@ export const supabase = createBrowserSupabaseClient<Database>();
 export const getActiveProductsWithPrices = async (): Promise<
   ProductWithPrice[]
 > => {
+  console.log('select: ', await supabase.from('products').select('*'));
   const { data, error } = await supabase
     .from('products')
     .select('*, prices(*)')
