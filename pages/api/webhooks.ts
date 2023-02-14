@@ -38,6 +38,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     const buf = await buffer(req);
     const sig = req.headers['stripe-signature'];
+    console.log('SIGNATURE: ', sig, 'HEaders: ', req.headers);
     const webhookSecret =
       process.env.STRIPE_WEBHOOK_SECRET_LIVE ??
       process.env.STRIPE_WEBHOOK_SECRET;
