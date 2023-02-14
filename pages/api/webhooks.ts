@@ -43,7 +43,7 @@ const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       process.env.STRIPE_WEBHOOK_SECRET_LIVE ??
       process.env.STRIPE_WEBHOOK_SECRET;
     let event: Stripe.Event;
-
+    console.log('WEBHOOK SECRET: ', webhookSecret);
     try {
       if (!sig || !webhookSecret) return;
       event = stripe.webhooks.constructEvent(buf, sig, webhookSecret);
